@@ -1,0 +1,42 @@
+<div class="container border border-dark rounded mt-2 col-md-6 bg-color2"> 
+    <table class="table justify-content-center">
+        <thead>
+            <tr>
+                <th scope="col col-md-1">ID</th>
+                <th scope="col col-md-3">Korisnicko ime</th>
+                <th scope="col col-md-2">Stanje</th>
+                <th scope="col col-md-1">Operacije</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let rr of registrationRequests">
+                <ng-template [ngIf]="rr.registered != 3">
+                    <td>{{rr.id}}</td>
+                    <td>{{rr.userName}}</td> 
+                    <ng-template [ngIf]="rr.registered == 0">
+                        <td> CEKA </td>
+                        <td>                        
+                            <button class="btn btn-success btn-sm w-100" (click)="acceptRequest(rr.id)">PRIHVATI</button>
+                            <button class = "btn btn-danger btn-sm w-100"(click)="declineRequest(rr.id)">ODBIJ</button>
+                        </td>
+                    </ng-template>     
+                    <ng-template [ngIf]="rr.registered == 1">
+                        <td> PRIHVACEN </td>
+                        <td>
+                            <button class = "btn btn-danger btn-sm w-100"(click)="declineRequest(rr.id)">ODBIJ</button>
+                        </td>
+                    </ng-template>
+                    <ng-template [ngIf]="rr.registered == 2">
+                        <td> ODBIJEN </td>
+                        <td>
+                            <button class="btn btn-success btn-sm w-100" (click)="acceptRequest(rr.id)">PRIHVATI</button>
+                        </td>
+                    </ng-template>
+                </ng-template>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+

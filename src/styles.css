@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+body{
+    margin: 0px;
+}
+
+.bgImage{    
+    background-color: #fff ;
+    background-image: url("src\assets\images\bgImage.jpg"); 
+    background-size:     cover;                     
+    background-repeat:   no-repeat;
+    background-position: center center; 
+}
+
+.bg-color1{
+    background-color: rgb(15,15,15, 0.95) ;
+}
+
+.bg-color2{
+    background-color: rgb(255,255,255, 0.95) ;
+}
+
+
+.fg-color1{
+    color: #0f0f0f;
+}
+
+.fg-color2{
+    color: #ffffff;
+}
+
+button{
+    opacity: 1;
+}

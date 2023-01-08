@@ -1,0 +1,67 @@
+<div class="container mb-2 mt-2">
+  
+
+  <div class="col-xl-12 col-lg-12 ">
+    <div class="row justify-content-center mb-3">
+      <div class="col-md-12 col-xl-10">
+        <div class="card shadow-0 border rounded-3 border border-dark rounded bg-color1">
+          <h3 class="text-center font-weight-bold pt-3 pb-2 fg-color2"> NAŠI PROIZVODI </h3>
+        </div>
+        </div>
+    </div>
+
+
+    <div class="row justify-content-center mb-3" *ngFor="let p of products">
+      <div class="col-md-12 col-xl-10">
+        <div class="card shadow-0 border rounded-3 border border-dark rounded">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
+                <div class="bg-image hover-zoom ripple rounded ripple-surface">                    
+                  <img src="{{p.photoUrl}}"
+                    class="w-100 h-100" />
+                  <a href="#!">
+                    <div class="hover-overlay">
+                      <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-6 col-xl-6">
+                <h5>{{p.name}}</h5>
+                
+                <div class="mt-1 mb-0 text-muted small">
+                  {{p.ingredients}}
+                  
+                </div>
+                <p class="text-truncate mb-2 mt-3 mb-md-0">
+                 
+                </p>
+              </div>
+              <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
+                <div class="d-flex flex-row align-items-center mb-1">
+                  <h4 class="mb-1 me-1">{{p.price}}</h4>
+                  <span class="text-danger">RSD</span>
+                </div>
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center mb-3">
+      <div class="col-md-12 col-xl-10">
+        <div class="card shadow-0 ">
+          <button class="btn btn-block btn-danger text-white font" (click)="addNewComponent()"> Dodaj novi proizvod</button>
+        </div>
+        </div>
+    </div>
+
+    
+  </div>
+</div>
+
+

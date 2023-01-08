@@ -1,0 +1,34 @@
+<div class="container bg-color2 mt-2 mb-2 pt-2 pb-2 shadow-0 border rounded-3 border border-dark rounded">
+    <form [formGroup]="newProductForm" (ngSubmit)="onSubmit()"> 
+   
+        <div class="row mb-4">
+            <div class="col">
+                <div class="form-outline">
+                    <label for="" class="form-label" for="name"> Naziv </label>
+                    <input type="text" id="name" class="form-control" formControlName="name"/>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-outline">
+                    <label for="" class="form-label" for="price"> Cena </label>
+                    <input type="text" id="price" class="form-control" formControlName="price"/>
+                </div>
+            </div>
+        </div>
+    
+        <div class="form-outline mb-4">
+            <label for="photoUrl" class="form-label">Fotografija</label>
+            <input class="form-control" type="file" id="photoUrl" formControlName="photoUrl"/>   
+        </div>
+    
+        <div class="form-outline mb-4">
+            <label class="form-label" for="ingredients">Sastojci</label>
+            <textarea class="form-control" id="ingredients" rows="4" formControlName = "ingredients"></textarea>
+        </div>
+    
+        <button type="submit" class="btn btn-danger btn-block mb-4 font-weight-bold"> Dodaj proizvod </button>
+    
+    </form>
+</div>
+
+

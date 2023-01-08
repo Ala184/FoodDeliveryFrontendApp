@@ -1,0 +1,131 @@
+<div class="container mt-2">
+  <form [formGroup]="myProfileForm" class="mt-2 mb-2 border rounded">
+    <div class="row gutters">
+      <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+      <div class="card h-100">
+        <div class="card-body border rounded-3 border border-dark rounded">
+          <div class="account-settings">
+            <div class="user-profile">              
+              <button class="badge badge-danger mb-4">{{myData.typeOfUser}}</button>
+              <div class="user-avatar">
+                <img src="{{myData.photoUrl}}" alt="Maxwell Admin">
+              </div>
+              <h5 class="user-name">{{myData.username}}</h5>
+              <h6 class="user-email">{{myData.email}}</h6>
+            </div>
+            <div class="about">
+              <h5>Ostalo:</h5>
+              <div class="container">
+                <!-- Consumer additional info -->
+                <ng-template [ngIf]="myData.typeOfUser == 'potrosac'">
+                  <p>Registrovan:</p>
+                    <ng-template [ngIf]="myData.registered == 0">
+                      <i class="bi bi-exclamation-circle-fill text-warning"></i><br>
+                      <p><br>Poštovani, Vaš zahtev čeka obradu. Za više informacija pozovite (+381)066/111-222</p>
+                    </ng-template>
+                    <ng-template [ngIf]="myData.registered == 1">
+                      <i class="bi bi-check-circle-fill text-success"></i>
+                    </ng-template>
+                    <ng-template [ngIf]="myData.registered == 2">
+                      <i class="bi bi-x-circle-fill text-danger"></i>
+                      <p><br>Poštovani, Vaš zahtev je odbijen. Za više informacija pozovite (+381)066/111-222</p>
+                    </ng-template>
+                </ng-template>
+                <!-- Deliverer additional info -->
+                <ng-template [ngIf]="myData.typeOfUser == 'dostavljac'">
+                  <p>Registrovan:</p>
+                    <ng-template [ngIf]="myData.verified == 0">
+                      <i class="bi bi-exclamation-circle-fill text-warning"></i><br>
+                      <p><br>Poštovani, Vaš zahtev čeka obradu. Za više informacija pozovite (+381)066/111-222</p>
+                    </ng-template>
+                    <ng-template [ngIf]="myData.verified == 1">
+                      <i class="bi bi-check-circle-fill text-success"></i>
+                    </ng-template>
+                    <ng-template [ngIf]="myData.verified == 2">
+                      <i class="bi bi-x-circle-fill text-danger"></i>
+                      <p><br>Poštovani, Vaš zahtev je odbijen. Za više informacija pozovite (+381)066/111-222</p>
+                    </ng-template>
+                </ng-template>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+      <div class="card h-100">
+        <div class="card-body border rounded-3 border border-dark rounded">
+          <div class="row gutters">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              <h6 class="mb-2 text-danger">Lični podaci:</h6>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+              <div class="form-group">
+                <label for="name">Ime</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter full name" formControlName="name">
+              </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+              <div class="form-group">
+                <label for="surname">Prezime</label>
+                <input type="email" class="form-control" id="surname" placeholder="Enter email ID" formControlName="surname">
+              </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+              <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="text" class="form-control" id="email" placeholder="Enter phone number" formControlName="email">
+              </div>
+            </div>
+          </div>
+          <div class="row gutters">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              <h6 class="mt-3 mb-2 text-danger">Adresa</h6>
+            </div>
+            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-12">
+              <div class="form-group">
+                <label for="city">Grad</label>
+                <input type="name" class="form-control" id="city" placeholder="Enter City" formControlName="city">
+              </div>
+            </div>
+            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-12">
+              <div class="form-group">
+                <label for="street">Ulica</label>
+                <input type="name" class="form-control" id="street" placeholder="Enter Street" formControlName="street">
+              </div>
+            </div>
+            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+              <div class="form-group">
+                <label for="number">Br.</label>
+                <input type="text" class="form-control" id="number" placeholder="Enter number" formControlName="number">
+              </div>
+            </div>
+          </div>
+          <div class="row gutters">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              <h6 class="mt-3 mb-2 text-danger">Lozinka</h6>
+              <h6>Želite promeniti lozinku? <a routerLink="." (click)="showPasswordSettings()" style="color: #df4759;">Kliknite ovde.</a></h6><br>
+            </div>
+          </div>
+          <div class="row gutters">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              <div class="text-right">
+                <button type="button" id="submit" name="submit" class="btn btn-danger btn-block" (click)="onSubmit()">Ažuriraj</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
+  </form>
+  
+  <div class="container"> 
+
+    <ng-template [ngIf]="showChangePassword == true" >
+      <app-change-password [usersId] = "myData.id"></app-change-password>
+    </ng-template>
+  </div>
+
+  </div>
+

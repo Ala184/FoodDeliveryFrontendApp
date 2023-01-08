@@ -1,0 +1,62 @@
+<section class="gradient-form" >
+    <div class="container py-5" style="background-color: transparent;">
+      <div class="row d-flex justify-content-center align-items-center h-100" >
+        <div class="col-xl-10">
+          <div class="card rounded-3 text-black" style="opacity: 0.9;">
+            <div class="row g-0">
+              <div class="col-lg-6">
+                <div class="card-body p-md-5 mx-md-4">
+  
+                  <div class="text-center">
+                    <img src="https://img.freepik.com/free-vector/chef-restaurant-logo-inspiration_139869-449.jpg?w=2000"
+                      style="width: 185px;" alt="logo">
+                    <h4 class="mt-1 mb-5 pb-1 font-weight-bold fg-color1">Dobro došli!</h4>
+                  </div>
+  
+                  <form [formGroup]="loginForm" (ngSubmit)="login()">
+                    <p class="font-weight-bold fg-color1 text-center">Molimo Vas da se prijavite</p>
+                    
+                    <a class="btn btn-block btn-lg font-weight-bold" style="background-color: #dd4b39; color: white;" href="#!" role="button"
+                    ><i class="bi bi-google"></i></a>
+          
+
+                    <div class="divider d-flex align-items-center my-4">
+                    <p class="text-center font-weight-bold mx-3 mb-0 fg-color1">ili</p>
+                    </div>
+
+
+                    <div class="form-outline mb-4">
+                      <input type="text" id="form2Example11" class="form-control" placeholder="Korisničko ime" formControlName="username" />
+                    </div>
+  
+                    <div class="form-outline mb-4">
+                      <input type="password" id="form2Example22" class="form-control" placeholder="Lozinka" formControlName="password"  />
+                    </div>
+  
+                    <div class="text-center pt-1 mb-5 pb-1">
+                      <button class="btn btn-block font-weight-bold myBtn" role="button" type="submit">Prijavi se</button>
+                    </div>
+  
+                    <div class="d-flex align-items-center justify-content-center pb-4">
+                      <p class="mb-0 me-2">Nemate nalog? </p>
+                      <button type="button" class="btn btn-outline-danger ml-1" routerLink="/register">Registruj se</button>
+                    </div>
+  
+                  </form>
+  
+                </div>
+              </div>
+              <div class="col-lg-6 d-flex align-items-center bg-color1">
+                <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                  <h4 class="mb-4">50 godina tradicije!</h4>
+                  <p class="small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

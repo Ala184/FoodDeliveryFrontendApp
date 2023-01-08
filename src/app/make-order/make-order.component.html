@@ -1,0 +1,109 @@
+<div class="container">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-lg-8 col-xl-6">
+          <div class="card border-top border-bottom border-3" style="border-color: #000000 !important;">
+            <div class="card-body p-5">
+                
+              <p class="lead fw-bold mb-5 font-weight-bold" style="color: #df4759;">Detalji vaše porudžbine:</p>
+
+              <div class="row">
+                <div class="col mb-12">
+                    <p class="small text-muted mb-1 font-weight-bold">Adresa:</p>
+                    <input type="text" id="address" name="address" value="{{address}}" [(ngModel)]="address" class="col-12">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col mb-12">
+                    <p class="small text-muted mb-1 font-weight-bold">Komentar:</p>
+                    <textarea type="text" id="comment" name="comment" value="{{comment}}" [(ngModel)] = "comment" class="col-12"></textarea>
+                </div>
+              </div>
+  
+              <div class="mx-n5 px-5 py-4 mt-4" style="background-color: #f2f2f2;">
+                <div class="row" *ngFor="let p of orderedProducts">
+                  <div class="col-md-8 col-lg-9">
+                    <p>{{p.name}}</p>
+                  </div>
+                  <div class="col-md-4 col-lg-3">
+                    <p>{{p.price}}RSD</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-8 col-lg-9">
+                    <p class="mb-0">*Dostava:</p>
+                  </div>
+                  <div class="col-md-4 col-lg-3">
+                    <p class="mb-0">200RSD</p>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="row my-4">
+                <div class="col-md-4 offset-md-8 col-lg-3 offset-lg-9">
+                  <p class="lead fw-bold mb-0" style="color: #df4759;">{{totalPriceWithDelivery}}RSD</p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-12">
+                  <button class="btn btn-block btn-danger" (click)="sendOrder()"> Poruči </button>
+                </div>
+              </div>
+              
+              <p class="mt-4 pt-2 mb-0">Imate primedbu? <a href="#!" style="color: #df4759;">Molimo Vas, kontaktirajte nas.</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-4 ">
+          <div class="row justify-content-center mb-3 " *ngFor="let p of products">
+            <div class="col-md-12 col-xl-10">
+              <div class="card shadow-0 border rounded-3 border border-dark rounded">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
+                      <div class="bg-image hover-zoom ripple rounded ripple-surface">                    
+                        <img src="{{p.photoUrl}}"
+                          class="w-100" />
+                        <a href="#!">
+                          <div class="hover-overlay">
+                            <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-6">
+                      <h5>{{p.name}}</h5>
+                      
+                      <div class="mt-1 mb-0 text-muted small">
+                        {{p.ingredients}}
+                        
+                      </div>
+                      <p class="text-truncate mb-2 mt-3 mb-md-0">
+                       
+                      </p>
+                    </div>
+                    <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
+                      <div class="d-flex flex-row align-items-center mb-1">
+                        <h4 class="mb-1 me-1">{{p.price}}</h4>
+                        <span class="text-danger">RSD</span>
+                      </div>
+                      
+                      
+                    </div>
+                  </div>
+                  <div class="d-flex flex-column mt-4">
+                    <button class="btn btn-danger btn-sm font-weight-bold " type="button" (click)="addToOrder(p.id)"> Dodaj u porudžbinu</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+</div>
+
+

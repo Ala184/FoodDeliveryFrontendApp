@@ -1,0 +1,35 @@
+
+<div class="container bg-color2 mt-2 border rounded-3">
+    <table class="table border rounded-3 mt-2">
+        <thead class="bg-color1 fg-color2">
+            <tr>
+                <th scope="col">Korisničko ime</th>
+                <th scope="col">Email</th>
+                <th scope="col">Ime</th>
+                <th scope="col">Prezime</th>
+                <th scope="col">Datum Rođenja</th>
+                <th scope="col">Adresa</th>
+                <th scope="col">Tip korisnika</th>
+                <th scope="col">Fotografija</th>
+                <th scope="col">State</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let u of users">
+                <td>{{u.username}}</td>
+                <td>{{u.email}}</td>
+                <td>{{u.name}}</td>
+                <td>{{u.surname}}</td>
+                <td>{{u.dateOfBirth | date:'LL.MM.y'}}</td>
+                <td>{{u.address}}</td>
+                <td>{{u.typeOfUser}}</td>
+                <td> <img src="{{u.photoUrl}}" style="height: 50px; width: 50px;"></td>
+                <td *ngIf="u.typeOfUser === 'potrosac'">POTROSAC</td>
+                <td *ngIf="u.typeOfUser === 'dostavljac'">DOSTAVLJAC</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+

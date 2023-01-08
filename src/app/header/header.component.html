@@ -1,0 +1,53 @@
+<header>
+    <nav class="navbar bg-color1 font-weight-bold" style="min-height: 70px ;">
+        <a class="navbar-brand text-danger" href="#">MyFoodDeliveryApp</a>
+        <div class="collapse navbar-collapse">
+            <ul class="">
+                <li class="nav-item">
+                    <a class="nav-link " routerLink="/productListing">Nasi proizvodi</a>
+                </li>
+            </ul>
+        </div>
+
+
+        
+        <div class="form-inline my-2 my-lg-0" >
+            <ng-template [ngIf]=" usersRole != 'administrator' && usersRole != 'potrosac' && usersRole != 'dostavljac'">
+                <a class="nav-link text-white" routerLink="/signin">Prijava</a>
+                <a class="nav-link text-white" routerLink="/register">Registruj se</a>
+            </ng-template>
+            <ng-template [ngIf]="usersRole == 'administrator' || usersRole == 'potrosac' || usersRole == 'dostavljac'">
+                <a class="nav-link text-white" routerLink="/myProfile">Moj profil</a>
+                <ng-template [ngIf]="usersRole == 'administrator' && approved == true">
+                    <a class="nav-link text-white" routerLink="/productListing">Naši proizvodi</a>
+                    <a class="nav-link text-white" routerLink="/userListing">Korisnici</a>
+                    <a class="nav-link text-white" routerLink="/registrationRequests">Zahtevi za registraciju</a>
+                    <a class="nav-link text-white" routerLink="/verificationRequests">Dostavljači</a>
+                    <a class="nav-link text-white" routerLink="/ordersListing">Sve porudžbine</a>
+                </ng-template>
+
+                <ng-template [ngIf]="usersRole == 'potrosac' && approved == true">
+                    <a class="nav-link text-white" routerLink="/makeOrder">Poruči</a>
+                    <a class="nav-link text-white" routerLink="/productListing">Naši proizvodi</a>
+                    <a class="nav-link text-white" routerLink="/myOrders">Moje porudžbine</a>
+                    <a class="nav-link text-white" routerLink="/consumersCurrentOrder">Trenutna porudžbina</a>
+                    
+                </ng-template>
+                
+                <ng-template [ngIf]="usersRole == 'dostavljac' && approved == true">
+                    <a class="nav-link text-white" routerLink="/deliveredOrders">Završene porudžbine</a>
+                    <a class="nav-link text-white" routerLink="/deliverersCurrentOrder">Trenutna porudžbina</a>
+                    <a class="nav-link text-white" routerLink="/orderBids">Nepreuzete porudžbine</a>
+                    
+                </ng-template>  
+
+                <a class="text-danger" (click)="logOut()">Odjavi se</a>
+            </ng-template>
+
+
+            
+        </div>
+        
+    </nav>
+   
+</header>

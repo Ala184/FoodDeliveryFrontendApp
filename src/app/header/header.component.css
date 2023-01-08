@@ -1,0 +1,19 @@
+*{
+    opacity: 0.95;
+}
+
+a:hover{
+    color: #d9534f ;
+}
+
+a:active{
+    color: #d9534f ;
+}
+
+a:visited{
+    color: #d9534f ;
+}
+
+a:link{
+    color: #d9534f ;
+}

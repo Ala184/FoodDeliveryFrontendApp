@@ -1,0 +1,32 @@
+
+
+
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #717d8d;
+}
+.h-custom {
+height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+.h-custom {
+height: 100%;
+}
+}
+
+.img-filter{
+    filter: invert(15%) sepia(24%) saturate(1360%) hue-rotate(143deg) brightness(90%) contrast(89%);
+}
+
+
+.myBtn {
+    background-color: #0f0f0f; 
+    color: white;
+}
+
+button:hover{
+    opacity: 0.95;
+}

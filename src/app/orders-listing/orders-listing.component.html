@@ -1,0 +1,58 @@
+<div class="container py-5 ">
+    <div class="row justify-content-center mb-3 " *ngFor="let o of orders">
+      <div class="col-md-12 col-xl-10">
+        <div class="card shadow-0 border rounded-3 border border-dark rounded">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
+                <div class="bg-image hover-zoom ripple rounded ripple-surface">                    
+                  <img src="{{o.products[0].photoUrl}}"
+                    class="w-100" />
+                  <a href="#!">
+                    <div class="hover-overlay">
+                      <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-6 col-xl-6">
+                <h5>{{o.address}}</h5>
+                
+                <div class="mt-1 mb-0 text-muted small">
+                  <span *ngFor="let p of o.products; let i = index;">
+                      {{p.name}}
+                      <ng-template [ngIf]="(i+1) != o.products.length">
+                          <span class="text-primary"> • </span> 
+                      </ng-template>                      
+                  </span>
+                  
+                </div>
+                <p class="text-truncate mb-2 mt-3 mb-md-0">
+                  Datum: {{o.createdAt | date}}<br>
+                  Dostavljeno: 
+                  <ng-template [ngIf]="o.delivered == 0">
+                      <i class="bi bi-exclamation-circle-fill text-warning"></i>
+                  </ng-template>
+                  <ng-template [ngIf]="o.delivered == 1">
+                      <i class="bi bi-check-circle-fill text-success"></i>
+                  </ng-template>
+              
+                </p>
+              </div>
+              <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
+                <div class="d-flex flex-row align-items-center mb-1">
+                  <h4 class="mb-1 me-1">{{o.totalPrice}}</h4>
+                  <span class="text-danger">RSD</span>
+                </div>
+                <h6 class="">*Dostava: 200RSD</h6>
+                <div class="d-flex flex-column mt-4">
+                  <button class="btn btn-danger btn-sm font-weight-bold " type="button" (click)="showOrderDetails(o.id)">Detalji</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
